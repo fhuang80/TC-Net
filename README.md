@@ -6,10 +6,11 @@ To improve the integrity of vegetation point clouds, the missing vegetation poin
 Python>=3.8, pytorch>=1.13, CUDA11.7, tqdm>=4.66.1, numpy>=1.24.3
 ## Model Training
 `python Train_TCNet.py --data_root ../../Data/OwnTree/ --route_type 1 --missing_type 3 --netG ../../Predict/Shapenet_Original/230317_TCNet_routetype1_missingtype3/point_netG200.pth --resume_epoch 200 --niter 401 --save_model_root ../Predict/OwnTree/230317_TCNet_routetype1_missingtype3_Tree_pretrain/ --batchSize 32 --workers 16 --cuda Ture --gpu 1` 
+
 Parameter Description:
 
 --data_root: Dataset location
---route_type 1 --missing_type 3: Parameters for uneven density missing, see Section 4.2.2 of "毕业论文/论文写作/基于深度学习的三维植被点云语义分割和补全技术研究_v17_打印.pdf" (Research on Semantic Segmentation and Completion Technology of 3D Vegetation Point Cloud Based on Deep Learning).
+--route_type 1 --missing_type 3: Parameters for uneven density missing
 --netG: Pre-trained weights on Shapenet-part, data located at "PCSS\Data\Shapenet_Original".
 --resume_epoch 200 --niter 401: Start training from the 200th epoch of pre-training, for 200 iterations.
 --D_choose 0: The original PF-Net has auxiliary GAN loss, which is not used here.
